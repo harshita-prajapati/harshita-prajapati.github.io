@@ -1,0 +1,351 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --background: #080d1a;
+    --surface: #111a2e;
+    --primary: #5b8cff;
+    --text: #ffffff;
+    --muted: #a5afc4;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--background);
+    color: var(--text);
+}
+
+/* Navigation */
+
+header {
+    padding: 25px 8%;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: var(--text);
+    font-size: 26px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.logo span,
+.hero h1 span,
+.about h2 span {
+    color: var(--primary);
+}
+
+.nav-links {
+    display: flex;
+    gap: 35px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+/* Hero Section */
+
+.hero {
+    min-height: 85vh;
+    padding: 80px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.hero-content {
+    max-width: 600px;
+    animation: fadeUp 1s ease;
+}
+
+.tagline {
+    color: var(--primary);
+    letter-spacing: 3px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(45px, 7vw, 75px);
+    line-height: 1.15;
+    margin-bottom: 25px;
+}
+
+.description {
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.8;
+    max-width: 480px;
+    margin-bottom: 35px;
+}
+
+/* Button */
+
+.btn {
+    display: inline-block;
+    background: var(--primary);
+    color: white;
+    padding: 15px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(91, 140, 255, 0.3);
+}
+
+/* Hero Card */
+
+.hero-card {
+    background: linear-gradient(145deg, #172542, #10182b);
+    border: 1px solid #26385b;
+    border-radius: 24px;
+    padding: 55px 45px;
+    min-width: 300px;
+    position: relative;
+    overflow: hidden;
+    animation: fadeUp 1.3s ease;
+}
+
+.card-circle {
+    width: 180px;
+    height: 180px;
+    background: var(--primary);
+    filter: blur(100px);
+    opacity: 0.5;
+    position: absolute;
+    top: -70px;
+    right: -50px;
+}
+
+.hero-card h2 {
+    font-size: 35px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.hero-card p {
+    color: var(--muted);
+    margin-top: 20px;
+}
+
+/* About Section */
+
+.about,
+.contact {
+    padding: 100px 8%;
+    text-align: center;
+}
+
+.about h2,
+.contact h2 {
+    font-size: clamp(30px, 5vw, 45px);
+    margin-bottom: 20px;
+}
+
+.about > p:last-child,
+.contact p {
+    color: var(--muted);
+    max-width: 600px;
+    line-height: 1.8;
+    margin: 0 auto;
+}
+
+.contact {
+    background: var(--surface);
+}
+
+.contact .btn {
+    margin-top: 25px;
+}
+
+/* Footer */
+
+footer {
+    padding: 25px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* Animation */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+
+@media (max-width: 768px) {
+    header {
+        padding: 22px 6%;
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+
+    .hero {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 65px 6%;
+    }
+
+    .hero-card {
+        width: 100%;
+        min-width: unset;
+    }
+
+    .about,
+    .contact {
+        padding: 75px 6%;
+    }
+}
+
+@media (max-width: 420px) {
+    .navbar {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .nav-links {
+        gap: 20px;
+    }
+}
+/* Animated Background */
+
+body {
+    background:
+        radial-gradient(circle at 15% 20%, #172c50 0%, transparent 35%),
+        radial-gradient(circle at 85% 80%, #17234b 0%, transparent 35%),
+        #080d1a;
+    background-attachment: fixed;
+}
+
+/* Glassmorphism Navigation */
+
+.navbar {
+    position: relative;
+    z-index: 100;
+}
+
+header {
+    position: relative;
+    z-index: 100;
+}
+
+/* Navigation Hover Effects */
+
+.nav-links a {
+    position: relative;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -6px;
+    left: 0;
+    background: var(--primary);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Premium Card Effect */
+
+.hero-card {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.hero-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(91, 140, 255, 0.15);
+}
+
+/* Button Animation */
+
+.btn {
+    box-shadow: 0 5px 20px rgba(91, 140, 255, 0.15);
+}
+
+.btn:hover {
+    transform: translateY(-5px) scale(1.03);
+}
+
+/* Mobile Menu Button */
+
+.menu-toggle {
+    display: none;
+    background: transparent;
+    color: white;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* Mobile Responsive Navigation */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        flex-direction: row;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 75px;
+        left: 0;
+        width: 100%;
+        padding: 25px;
+        background: #111a2e;
+        border: 1px solid #26385b;
+        border-radius: 12px;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+}
